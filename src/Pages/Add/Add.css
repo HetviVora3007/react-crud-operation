@@ -43,10 +43,10 @@
 .add-page-employee-salary,
 .add-page-employee-date {
     width: 100%;
-    height: 17%;
+    height: 20%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .add-page-employee-name p,
@@ -54,6 +54,7 @@
 .add-page-employee-salary p,
 .add-page-employee-date p {
     font-size: 17px;
+    height: 20%;
     font-weight: 500;
 }
 
@@ -72,7 +73,7 @@
 
 .add-and-cancel-button {
     width: 70%;
-    height: 11%;
+    height: 15%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -86,6 +87,12 @@
     background-color: #246bfb;
     color: white;
     border: 1px solid transparent;
+    transition: 0.3s;
+}
+
+.add-button:hover,
+.cancel-button:hover {
+    scale: calc(1.1);
 }
 
 .cancel-button {
@@ -95,4 +102,35 @@
     border-radius: 6px;
     background-color: #f9f9f9;
     border: 1px solid #3c3b3b;
+    transition: 0.3s;
+}
+
+@media screen and (max-width: 550px) {
+    .add-page-sub-container {
+        width: 90%;
+        height: 90%;
+    }
+
+    .add-page-container {
+        width: 90%;
+        height: 93%;
+    }
+
+    .add-page-employee-name p,
+    .add-page-employee-email p,
+    .add-page-employee-salary p,
+    .add-page-employee-date p {
+        font-size: 21px;
+    }
+
+    .add-and-cancel-button {
+        width: 97%;
+        height: 14%;
+    }
+
+    .cancel-button,
+    .add-button {
+        width: 45%;
+        font-size: 20px;
+    }
 }

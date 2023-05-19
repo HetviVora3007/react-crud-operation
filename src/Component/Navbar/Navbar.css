@@ -3,6 +3,7 @@
     height: 15vh;
     display: flex;
     justify-content: center;
+    /* background-color: aqua; */
 }
 
 .navbar-container {
@@ -26,7 +27,7 @@
 }
 
 .right-side-container {
-    width: 10%;
+    width: 11%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -35,7 +36,7 @@
 
 .add-button-link {
     width: 100%;
-    height: 45%;
+    height: 52%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,4 +44,20 @@
     background-color: #246bfb;
     border-radius: 8px;
     color: white;
+    transition: 0.3s;
+}
+
+.add-button-link:hover {
+    scale: calc(1.1);
+    color: white;
+}
+
+@media screen and (max-width: 550px) {
+    .left-side-container {
+        width: 70%;
+    }
+
+    .right-side-container {
+        width: 27%;
+    }
 }

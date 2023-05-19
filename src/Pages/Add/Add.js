@@ -1,32 +1,38 @@
-import React from 'react'
-import { useState, useNavigate } from 'react'
+import { React, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import './Add.css'
-import Data from '../../Utils/Data'
 import Navbar from '../../Component/Navbar/Navbar'
 
 const Add = () => {
 
-    var navigate = useNavigate()
-
     const [formData, setFormData] = useState({})
+    const [list, setList] = useState([])
+
+    const navigate = useNavigate()
 
     const inputHandler = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value, id: Math.random() })
     }
 
-    const submitHandler = (e) => {
-        e.preventDefault()
-        Data.push(formData)
-        // console.log(formData)
-        navigate("/")
+    const submitHandler = () => {
+        const myData = localStorage.getItem('myData')
+        const data = JSON.parse(myData)
+        data.push(formData)
+        localStorage.setItem('myData', JSON.stringify(data))
+        setList(JSON.parse(localStorage.getItem('myData')))
+        navigate('/')
+    }
+
+    const cancelHandler = () => {
+        navigate('/')
     }
 
     return (
         <><div><Navbar /></div>
             <div className='add-page-main-container'>
-                <div className='add-page-title'><p>Edit Employee</p></div>
+                <div className='add-page-title'><p>Add Employee</p></div>
                 <div className='add-page-sub-container'>
                     <div className='add-page-container'>
                         <div className='add-page-employee-name'>
@@ -47,7 +53,7 @@ const Add = () => {
                         </div>
                         <div className='add-and-cancel-button'>
                             <button className='add-button' onClick={submitHandler}>Add</button>
-                            <button className='cancel-button'>Cancel</button>
+                            <button className='cancel-button' onClick={cancelHandler}>Cancel</button>
                         </div>
                     </div>
                 </div>
